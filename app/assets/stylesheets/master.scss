@@ -13,6 +13,7 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
+  color: #115599;
   margin: 0;
   padding: 0;
 }
@@ -25,4 +26,10 @@ body {
 .navbar {
   background: image_url('background-bathmap-nav.png');
   box-shadow: 0px 1px 10px #003366;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #65a0dd;
+  font-family: 'chunkfiveroman';
+  font-size: 36px;
 }
