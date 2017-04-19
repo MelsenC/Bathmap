@@ -6,6 +6,9 @@
   </div>
 
 <% end %>
-<div class="col-10 offset-1">
-  <%= paginate @places, window: 2 %>
+<div class="col-10 offset-1" id="pagination-nav">
+  <%= link_to_prev_page @places, 'Previous Page' %>
+  <span class="float-right">
+    <%= link_to_next_page @places, 'Next Page' %>
+  </span>
 </div>

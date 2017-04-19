@@ -33,3 +33,14 @@ body {
   font-family: 'chunkfiveroman';
   font-size: 36px;
 }
+
+#pagination-nav {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+#pagination-nav a {
+  color: #ddd;
+}

@@ -57,3 +57,6 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 
 # include Kaminari, a pagination gem
 gem 'kaminari'
+
+# include bootstrap4 styling for Kaminari
+# gem 'bootstrap4-kaminari-views'
