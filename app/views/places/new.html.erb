@@ -1,0 +1,15 @@
+<div class="booyah-box col-10 offset-1">
+  <h1>Add your new bathroom!</h1>
+  <%= simple_form_for @place do |f| %>
+    <%= f.input :name, label: "Bathroom Name" %>
+    <%= f.input :address, label: "Address" %>
+    <%= f.input :description, label: "Description" %>
+    <br />
+    <%# f.check_box :accessible, inline_label: "Accessible?" %>
+    <%# f.check_box :single_use, inline_label: "Single Use?" %>
+    <%# f.check_box :gender_neutral, inline_label: "Gender-Neutral?" %>
+    <!--<br />-->
+    <%= f.submit 'Create', class: 'btn btn-primary' %>
+
+  <% end %>
+</div>

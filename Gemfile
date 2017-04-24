@@ -60,3 +60,6 @@ gem 'kaminari'
 
 # include bootstrap4 styling for Kaminari
 # gem 'bootstrap4-kaminari-views'
+
+# include Simple Form
+gem 'simple_form'
