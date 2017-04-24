@@ -63,3 +63,6 @@ gem 'kaminari'
 
 # include Simple Form
 gem 'simple_form'
+
+# include Font Awesome for icons
+gem 'font-awesome-rails'
