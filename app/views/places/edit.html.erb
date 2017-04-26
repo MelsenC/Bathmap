@@ -1,5 +1,5 @@
 <div class="booyah-box col-10 offset-1">
-  <h1>Share a Bathroom</h1>
+  <h1>Edit Bathroom</h1>
   <%= simple_form_for @place do |f| %>
     <%= f.input :name, label: "Bathroom Location" %>
     <%= f.input :address, label: "Address" %>
@@ -15,7 +15,7 @@
     <%= f.check_box :gender_neutral %>
     <br />
     <br />
-    <%= f.submit 'Create', class: 'btn btn-primary' %>
+    <%= f.submit 'Update', class: 'btn btn-primary' %>
 
   <% end %>
 </div>
