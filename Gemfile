@@ -69,3 +69,9 @@ gem 'font-awesome-rails'
 
 # include Devise for security authentication
 gem 'devise'
+
+# include Geocoder for looking up latitude and longitude coordinates of addresses
+gem 'geocoder'
+
+# include Figaro for protecting sensitive data in local and heroku environment variables - gitignore
+gem 'figaro'
