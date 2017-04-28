@@ -3,10 +3,55 @@
   <i><%= @place.address %></i>
   <br /><br />
   <p><%= @place.description %></p>
+
+  <% if @place.latitude.present? && @place.longitude.present? %>
+
+    <script>
+
+      function initMap() {
+        var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBJYUnD1nSO6De8I4q1UaUGqMQs8tzUFs&callback=initMap">
+    </script>
+
+    <div id="map"></div>
+
+  <% end %>
+
+  <br />
+
+  <div class="float-left">
+    <% if @place.accessible? %>
+      Accessible&nbsp;&nbsp;
+    <% end %>
+    <% if @place.single_use? %>
+      Single Use&nbsp;&nbsp;
+    <% end %>
+    <% if @place.gender_neutral? %>
+      Gender Neutral&nbsp;&nbsp;
+    <% end %>
+  </div>
+
   <div class="float-right">
     <% if current_user && current_user == @place.user %>
       <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
-      <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
+      <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
     <% end %>
   </div>
+
+  <br />
+
 </div>
