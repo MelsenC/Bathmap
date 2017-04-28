@@ -5,7 +5,7 @@
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
   box-shadow: 1px 1px 4px 0 #115599;
-  background: #b8d0ee;
+  background: rgba(184, 208, 238, 0.9); /* #b8d0ee */
   border: 2px solid #ccc;
   border-color: #e4e4e4 #a0c0d0 #a0c0d0 #e4e4e4;
   border-radius: 10px;
@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   background: image_url('background-bathmap.png');
+  background-attachment: fixed;
   font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
