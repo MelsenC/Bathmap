@@ -33,25 +33,28 @@
 
   <br />
 
-  <div class="float-left">
-    <% if @place.accessible? %>
-      Accessible&nbsp;&nbsp;
-    <% end %>
-    <% if @place.single_use? %>
-      Single Use&nbsp;&nbsp;
-    <% end %>
-    <% if @place.gender_neutral? %>
-      Gender Neutral&nbsp;&nbsp;
-    <% end %>
+  <div class="row">
+    <div class="col-12">
+
+      <div class="tag float-left">
+        <% if @place.accessible? %>
+          <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Accessible&nbsp;&nbsp;</span>
+        <% end %>
+        <% if @place.single_use? %>
+          <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Single Use&nbsp;&nbsp;</span>
+        <% end %>
+        <% if @place.gender_neutral? %>
+          <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Gender Neutral&nbsp;&nbsp;</span>
+        <% end %>
+      </div>
+
+      <div class="float-right">
+        <% if current_user && current_user == @place.user %>
+          <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
+          <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
+        <% end %>
+      </div>
+
+    </div>
   </div>
-
-  <div class="float-right">
-    <% if current_user && current_user == @place.user %>
-      <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
-      <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
-    <% end %>
-  </div>
-
-  <br />
-
 </div>

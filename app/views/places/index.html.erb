@@ -6,10 +6,25 @@
   <div class="booyah-box col-10 offset-1">
     <h1><%= link_to place.name, place_path(place) %></h1>
     <i><%= place.address %></i><br /><br />
-    <p><%= place.description %></p><br />
+    <p><%= place.description %></p>
     <%# if place.user.present? %>
       <!--<small><%# place.user.email %></small>-->
     <%# end %>
+    <div class="row">
+      <div class="col-12">
+        <div class="tag">
+          <% if place.accessible? %>
+            <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Accessible&nbsp;&nbsp;</span>
+          <% end %>
+          <% if place.single_use? %>
+            <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Single Use&nbsp;&nbsp;</span>
+          <% end %>
+          <% if place.gender_neutral? %>
+            <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Gender Neutral&nbsp;&nbsp;</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
   </div>
 
