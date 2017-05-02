@@ -89,6 +89,32 @@
     </div>
   </div>
 
+  <div class="clear"></div>
+  <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+    <%= f.input :caption %>
+    <%= f.submit "Upload Photo", class: 'btn btn-primary' %>
+  <% end %>
+
+  <% if @place.photos.present? %>
+    <div class="clear">&nbsp;</div>
+    <div class="row">
+      <div class="col-12">
+        <h2>Photos</h2>
+      </div>  
+      <div class="clear"></div>
+      <% @place.photos.each do |photo| %>
+        <div class="col-12 col-sm-6">
+          <figcaption>
+            <% if photo.caption.present? %>
+              <b><%= photo.caption %></b> - 
+            <% end %>
+            <small><%# photo.user.email %></small>
+          </figcaption>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
   <% if @place.comments.present? %>
     <div class="clear">&nbsp;</div>
     <div class="row">
@@ -108,6 +134,6 @@
         </div>
       <% end %>
     </div>
-  <% end %>
+  <% end %>  
 </div>
 
