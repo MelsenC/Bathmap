@@ -58,16 +58,16 @@
           <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary float-right show-button' %>
         <% end %>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary float-right show-button" data-toggle="modal" data-target="#myModal">
+        <button type="button" class="btn btn-primary float-right show-button" data-toggle="modal" data-target="#addComment">
           Add a comment
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addComment" tabindex="-1" role="dialog" aria-labelledby="addCommentLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add a comment</h5>
+                <h5 class="modal-title" id="addCommentLabel">Add a comment</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
