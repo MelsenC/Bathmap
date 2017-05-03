@@ -81,3 +81,6 @@ gem 'carrierwave', '~> 1.0'
 
 # include fog for communicating with Amazon S3 file uploading
 gem "fog-aws"
+
+# include Mini Magick for resizing images before saving to the database
+gem "mini_magick"
