@@ -25,9 +25,16 @@
         </div>
       </div>
     </div>
-    <% if place.comments.present? %>
-      <div class="row">
-        <div class="col-12">
+    <div class="row">
+      <% if place.photos.present? %>
+        <div class="col-12 col-sm-6 col-md-4">
+          <figure>
+            <%= image_tag place.photos.first.picture, class: 'img-fluid' %>
+          </figure>
+        </div>
+      <% end %>
+      <% if place.comments.present? %>
+        <div class="col-12 col-sm-6 col-md-8">
           <blockquote>
             <% if place.comments.last.humanized_rating.present? %>
               <b><%= place.comments.last.humanized_rating %></b> - 
@@ -36,8 +43,8 @@
             <small><%# place.comments.last.user.email %></small>
           </blockquote>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
   </div>
 
