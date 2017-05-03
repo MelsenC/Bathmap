@@ -78,3 +78,6 @@ gem 'figaro'
 
 # include Carrier Wave for uploading files via forms
 gem 'carrierwave', '~> 1.0'
+
+# include fog for communicating with Amazon S3 file uploading
+gem "fog-aws"
