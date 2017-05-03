@@ -75,3 +75,6 @@ gem 'geocoder'
 
 # include Figaro for protecting sensitive data in local and heroku environment variables - gitignore
 gem 'figaro'
+
+# include Carrier Wave for uploading files via forms
+gem 'carrierwave', '~> 1.0'
