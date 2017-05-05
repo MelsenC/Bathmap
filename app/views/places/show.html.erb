@@ -121,6 +121,38 @@
     </div>
   </div>
 
+<% if @place.photos.present? %>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <%= image_tag @place.photos.first.picture, class: 'd-block mx-auto img-fluid', alt: @place.photos.first.caption %>
+      <div class="carousel-caption d-none d-md-block">
+        <p><%= @place.photos.first.caption %></p>
+      </div>
+    </div>
+    <% if @place.photos.last != @place.photos.first %>
+      <% @place.photos.each do |photo| %>
+        <% if photo != @place.photos.first %>
+          <div class="carousel-item mx-auto">
+            <%= image_tag photo.picture, class: 'd-block mx-auto img-fluid', alt: photo.caption %>
+            <div class="carousel-caption d-none d-md-block">
+              <p><%= photo.caption %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<% end %>
   
 
   <% if @place.photos.present? %>

@@ -29,7 +29,7 @@
       <% if place.photos.present? %>
         <div class="col-12 col-sm-6 col-md-4">
           <figure>
-            <%= image_tag place.photos.first.picture, class: 'img-fluid' %>
+            <%= image_tag place.photos.first.picture.thumb, class: 'img-fluid' %>
           </figure>
         </div>
       <% end %>
