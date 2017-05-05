@@ -102,3 +102,12 @@ figure {
 .carousel-item img {
   object-fit: contain;
 }
+
+.carousel-caption {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: rgba(0, 0, 0, 0.95) 2px 2px;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 0;
+}

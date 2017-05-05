@@ -28,11 +28,17 @@ class PictureUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+
+  # fit will make sure the image fits within the dimensions - it will definitely have the same width or the same height.
+  # Only both if it has the same exact aspect ratio to begin with.
   process resize_to_fit: [900, 400]
 
+  # fill will crop the image
   version :thumb do
     process resize_to_fill: [400,200]
   end 
+  # if this doesn't succeed, the versions can be re-processed:
+  # example (in the console): Photo.find(25).picture.recreate_versions!
 
   # Create different versions of your uploaded files:
   # version :thumb do
