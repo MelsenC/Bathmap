@@ -14,6 +14,8 @@
   function setMarkers(map) {
 
     var bathrooms = [];
+    var bounds = new google.maps.LatLngBounds();
+    var infowindow = new google.maps.InfoWindow();
 
     <% @places.each do |place| %>
       <% if place.latitude.present? && place.longitude.present? %>
@@ -28,7 +30,21 @@
         map: map,
         title: bathroom[0]
       });
+
+        //extend the bounds to include each marker's position
+      bounds.extend(marker.position);
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
     } 
+
+    //now fit the map to the newly inclusive bounds
+    map.fitBounds(bounds);
+
   } 
 
 </script>
