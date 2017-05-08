@@ -2,8 +2,8 @@
 
   function initMap() {
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
+    var map = new google.maps.Map(document.getElementById('map-index'), {
+      zoom: 14,
       center: {lat: <%= @places.first.latitude %>, lng: <%= @places.first.longitude %>}
     });
 
@@ -11,23 +11,22 @@
 
   }
 
-  var bathrooms = []
-
-  <% @places.each do |place| %>
-    <% if place.latitude.present? && place.longitude.present? %>
-      bathrooms << [<%= place.name %>, <%= place.latitude %>, <%= place.longitude %>, <%= place.id %>]
-    <% end %>  
-  <% end %>
-
   function setMarkers(map) {
+
+    var bathrooms = [];
+
+    <% @places.each do |place| %>
+      <% if place.latitude.present? && place.longitude.present? %>
+        bathrooms.push(["<%= place.name %>", <%= place.latitude %>, <%= place.longitude %>]);
+      <% end %>  
+    <% end %>
 
     for (var i = 0; i < bathrooms.length; i++) {
       var bathroom = bathrooms[i];
       var marker = new google.maps.Marker({
         position: {lat: bathroom[1], lng: bathroom[2]},
         map: map,
-        title: bathroom[0],
-        zIndex: bathroom[3]
+        title: bathroom[0]
       });
     } 
   } 
@@ -37,7 +36,7 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBJYUnD1nSO6De8I4q1UaUGqMQs8tzUFs&callback=initMap">
 </script>
 
-<div id="map"></div>
+<div id="map-index"></div>
 
 
 <% @places.each do |place| %>
