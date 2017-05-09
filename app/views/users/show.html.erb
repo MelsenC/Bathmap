@@ -1,10 +1,10 @@
 <div class="booyah-box col-10 offset-1">
   <div class="row">
-    <div class="col-12 col-sm-3 text-center">
+    <div class="col-12 col-md-3 text-center">
       <%= image_tag 'user.svg', class: 'img-fluid' %>
     </div>
 
-    <div class="col-12 col-sm-9">
+    <div class="col-12 col-md-9">
       <h1><%= @user.email %></h1><br />
       <h3>Member since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
       <br />
@@ -33,5 +33,61 @@
       <% end %>
     </div>
   <% end %>
+  <div class="clear">&nbsp;</div>
+  <hr />
+  <br />
+  <h1 class="text-center">My Bathrooms</h1>
+  <br /><br />
+  <% @user.places.each do |place| %>
+  <div class="booyah-box col-10 offset-1">
+    <div class="row">
+      <div class="col-12">
+        <span class="float-left"><h1><%= link_to place.name, place_path(place) %></h1></span>
+        <span class="float-right"><i><%= place.address %></i><br /><br /></span>
+      </div>
+    </div>
+    <p><%= place.description %></p>
+    <%# if place.user.present? %>
+      <!--<small><%# place.user.email %></small>-->
+    <%# end %>
+    <div class="row">
+      <div class="col-12">
+        <div class="tag">
+          <% if place.accessible? %>
+            <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Accessible&nbsp;&nbsp;</span>
+          <% end %>
+          <% if place.single_use? %>
+            <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Single Use&nbsp;&nbsp;</span>
+          <% end %>
+          <% if place.gender_neutral? %>
+            <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Gender Neutral&nbsp;&nbsp;</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <% if place.photos.present? %>
+        <div class="col-12 col-md-6">
+          <figure>
+            <%= image_tag place.photos.first.picture.thumb, class: 'img-fluid' %>
+          </figure>
+        </div>
+      <% end %>
+      <% if place.comments.present? %>
+        <div class="col-12">
+          <blockquote>
+            <% if place.comments.last.humanized_rating.present? %>
+              <b><%= place.comments.last.humanized_rating %></b> - 
+            <% end %>
+            <%= place.comments.last.message %>
+            <small><%# place.comments.last.user.email %></small>
+          </blockquote>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
+<% end %>
 </div>
 
