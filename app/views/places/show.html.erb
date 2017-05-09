@@ -41,13 +41,13 @@
 
       <div class="tag float-left">
         <% if @place.accessible? %>
-          <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Accessible&nbsp;&nbsp;</span>
+          <span class="float-left"><i class="fa fa-check-square aria-hidden="true""></i>&nbsp;Accessible&nbsp;&nbsp;</span>
         <% end %>
         <% if @place.single_use? %>
-          <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Single Use&nbsp;&nbsp;</span>
+          <span class="float-left"><i class="fa fa-check-square aria-hidden="true""></i>&nbsp;Single Use&nbsp;&nbsp;</span>
         <% end %>
         <% if @place.gender_neutral? %>
-          <span class="float-left"><i class="fa fa-check-square"></i>&nbsp;Gender Neutral&nbsp;&nbsp;</span>
+          <span class="float-left"><i class="fa fa-check-square aria-hidden="true""></i>&nbsp;Gender Neutral&nbsp;&nbsp;</span>
         <% end %>
         <span class="float-left">&nbsp;<br />&nbsp;</span>
       </div>
