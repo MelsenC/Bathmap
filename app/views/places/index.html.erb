@@ -19,7 +19,7 @@
 
     <% @places.each do |place| %>
       <% if place.latitude.present? && place.longitude.present? %>
-        bathrooms.push(["<%= place.name %>", <%= place.latitude %>, <%= place.longitude %>]);
+        bathrooms.push(["<%= place.name %>", <%= place.latitude %>, <%= place.longitude %>, "<%= place_path(place) %>"]);
       <% end %>  
     <% end %>
 
@@ -27,6 +27,7 @@
       var bathroom = bathrooms[i];
       var marker = new google.maps.Marker({
         position: {lat: bathroom[1], lng: bathroom[2]},
+        url: bathroom[3],
         map: map,
         title: bathroom[0]
       });
@@ -34,16 +35,15 @@
         //extend the bounds to include each marker's position
       bounds.extend(marker.position);
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
+      google.maps.event.addListener(marker, 'click', function() {
+          window.location.href = this.url;
+      });
+
     } 
 
     //now fit the map to the newly inclusive bounds
     map.fitBounds(bounds);
+   
 
   } 
 
