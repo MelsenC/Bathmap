@@ -1,6 +1,16 @@
 <div class="booyah-box col-10 offset-1">
-  <h1><%= @user.email %></h1>
-  <h3>Member since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
-  <h4>Total Comments: <%= @user.comments.count %></h4>
-  <h4>Total 5-star Reviews: <%= @user.comments.where(rating: '5_stars').count %></h4>
+  <div class="row">
+    <div class="col-12 col-sm-3 text-center">
+      <%= image_tag 'user.svg', class: 'img-fluid' %>
+    </div>
+
+    <div class="col-12 col-sm-9">
+      <h1><%= @user.email %></h1><br />
+      <h3>Member since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
+      <br />
+      <h4>Total Comments: <%= @user.comments.count %></h4>
+      <h4>Total 5-star Reviews: <%= @user.comments.where(rating: '5_stars').count %></h4>
+    </div>
+  </div>
+  <div class="clear"></div>
 </div>
