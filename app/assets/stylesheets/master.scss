@@ -29,6 +29,11 @@ body {
 .navbar {
   background: image_url('background-bathmap-nav.png');
   box-shadow: 0px 1px 10px #003366;
+  margin-top: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .navbar-inverse .navbar-brand {
@@ -125,3 +130,10 @@ hr {
   border: none;
   width: 90%;
 }
+
+:target:before {
+    content:"";
+    display:block;
+    height:78px; /* fixed header height*/
+    margin:-78px 0 0; /* negative fixed header height */
+    }
