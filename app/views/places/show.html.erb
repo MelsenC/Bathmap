@@ -21,8 +21,13 @@
 
         var marker = new google.maps.Marker({
           position: myLatLng,
+          url: 'http://www.google.com/maps?q=('+<%= @place.latitude.to_s %>+','+<%= @place.longitude.to_s %>+')',
           map: map,
-          title: 'Hello World!'
+          title: '<%= @place.name %>'
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          window.location.href = this.url;
         });
       }
     </script>
