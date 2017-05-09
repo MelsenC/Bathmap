@@ -12,5 +12,26 @@
       <h4>Total 5-star Reviews: <%= @user.comments.where(rating: '5_stars').count %></h4>
     </div>
   </div>
-  <div class="clear"></div>
+  <div class="clear">&nbsp;</div>
+  <hr />
+  <br />
+  <h1 class="text-center">My Comments</h1>
+  <br /><br />
+  <% if @user.comments.present? %>
+    <div class="clear">&nbsp;</div>
+    <div class="row">
+      <% @user.comments.each do |comment| %>
+        <div class="col-12 col-md-6 col-xl-4">
+          <h2 class="text-center"><%= link_to comment.place.name, place_path(comment.place) %></h2>
+          <blockquote>
+            <% if comment.humanized_rating.present? %>
+              <b><%= comment.humanized_rating %></b> - 
+            <% end %>
+            <%= comment.message %>
+          </blockquote>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
+
