@@ -20,6 +20,23 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+h1 {
+  font-family: 'chunkfiveroman';
+}
+
+h2, h3 {
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+}
+
+h1>a:link, h1>a:visited, h2>a:link, h2>a:visited, h3>a:link, h3>a:visited, {
+  color: #115599;
+}
+
+h1>a:hover, h1>a:active, h2>a:hover, h2>a:active, h3>a:hover, h3>a:active {
+  color: #65a0dd;
+}
+
 body {
   background: image_url('background-bathmap.png');
   background-attachment: fixed;
@@ -42,8 +59,13 @@ body {
   font-size: 36px;
 }
 
-#add-bathroom {
-  font-size: 24px;
+#add-bathroom, #user-email {
+  font-size: 30px;
+  font-family: 'Georgia', serif;
+}
+
+#user-email {
+  font-weight: bold;
 }
 
 .pagination {
